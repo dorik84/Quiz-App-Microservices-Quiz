@@ -1,4 +1,5 @@
-package com.oleksandrdoroshchuk.model;
+package com.oleksandrdoroshchuk.quiz_service.model;
+
 
 
 import lombok.Data;

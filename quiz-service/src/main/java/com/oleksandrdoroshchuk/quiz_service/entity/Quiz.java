@@ -1,9 +1,12 @@
-package com.oleksandrdoroshchuk.entity;
+package com.oleksandrdoroshchuk.quiz_service.entity;
+
+
 
 
 import java.util.List;
 
 import jakarta.persistence.CascadeType;
+import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -20,7 +23,7 @@ public class Quiz {
     private Integer Id;
     private String title;
     
-    @OneToMany(cascade = CascadeType.ALL, fetch =FetchType.LAZY)
-    private List<Question> questions;
+    @ElementCollection
+    private List<Integer> questionIds;
 
 }

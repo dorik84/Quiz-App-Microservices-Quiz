@@ -1,17 +1,20 @@
-package com.oleksandrdoroshchuk.controller;
+package com.oleksandrdoroshchuk.quiz_service.controller;
+
+
+
+
 
 
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.oleksandrdoroshchuk.entity.Quiz;
-import com.oleksandrdoroshchuk.model.QuestionWrapper;
-import com.oleksandrdoroshchuk.model.QuizDto;
-import com.oleksandrdoroshchuk.model.Response;
-import com.oleksandrdoroshchuk.service.QuizService;
+import com.oleksandrdoroshchuk.quiz_service.entity.Quiz;
+import com.oleksandrdoroshchuk.quiz_service.model.QuizDto;
+import com.oleksandrdoroshchuk.quiz_service.service.QuizService;
 
 import jakarta.websocket.server.PathParam;
+import lombok.extern.slf4j.Slf4j;
 
 import java.util.List;
 
@@ -25,9 +28,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 
 
-
 @RestController
-@RequestMapping("quiz")
+@RequestMapping(path="quiz")
+@Slf4j
 public class QuizController {
 
     @Autowired
@@ -35,20 +38,25 @@ public class QuizController {
 
     @PostMapping("create")
     public ResponseEntity<Quiz> createQuiz(@RequestBody QuizDto dto ) {
-        // return new ResponseEntity<>("Hello", HttpStatus.OK);
         return quizService.createQuiz(dto.getCategory(),dto.getNumQuestions(),dto.getTitle());
     }
 
-    @GetMapping("get/{id}")
-    public ResponseEntity<List<QuestionWrapper>> getQuestionsByQuizId(@PathVariable Integer id) {
-        return quizService.getQuestionsByQuizId(id);
+    @GetMapping("test")
+    public String getMethodName( ) {
+        return new String("Test!!!");
     }
     
-    @PostMapping("submit/{quizId}")
-    public ResponseEntity<Integer> submitQuizAnswers(@PathVariable Integer quizId, @RequestBody List<Response> responses) {
-        System.out.println("submitQuizAnswers triggered");
-        return quizService.calculateScore(quizId,responses);
-    }
+
+    // @GetMapping("get/{id}")
+    // public ResponseEntity<List<QuestionStripper>> getQuestionsByQuizId(@PathVariable Integer id) {
+    //     return quizService.getQuestionsByQuizId(id);
+    // }
+    
+    // @PostMapping("submit/{quizId}")
+    // public ResponseEntity<Integer> submitQuizAnswers(@PathVariable Integer quizId, @RequestBody List<Response> responses) {
+    //     System.out.println("submitQuizAnswers triggered");
+    //     return quizService.calculateScore(quizId,responses);
+    // }
     
     
 }

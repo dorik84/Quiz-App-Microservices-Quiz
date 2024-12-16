@@ -1,11 +1,12 @@
-package com.oleksandrdoroshchuk.dao;
+package com.oleksandrdoroshchuk.quiz_service.dao;
 
 
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.oleksandrdoroshchuk.entity.Quiz;
+import com.oleksandrdoroshchuk.quiz_service.entity.Quiz;
+
 
 
 
