@@ -26,5 +26,5 @@ public interface QuizInterface {
     
     
     @PostMapping("/question/getScore")
-    public ResponseEntity<Integer> gerScore(@RequestBody List<Response> responses);
+    public ResponseEntity<Integer> calculateScore(@RequestBody List<Response> responses);
 }

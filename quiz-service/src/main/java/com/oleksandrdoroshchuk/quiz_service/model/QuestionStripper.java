@@ -4,9 +4,13 @@ package com.oleksandrdoroshchuk.quiz_service.model;
 
 import com.oleksandrdoroshchuk.quiz_service.entity.Question;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class QuestionStripper {
     private Integer id;
 
